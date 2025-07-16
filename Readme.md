@@ -24,26 +24,7 @@ A complete customer and branch management backend using **Node.js**, **Express**
 
 ## 📁 Folder Structure
 
-├── controllers/
-│ ├── customerController.js
-│ └── branchController.js
-├── routes/
-│ ├── customerRoutes.js
-│ └── branchRoutes.js
-├── validators/
-│ ├── customerSchema.js
-│ └── branchSchema.js
-├── utils/
-│ └── handleError.js
-├── public/
-│ └── swagger-ui.css
-├── prisma/
-│ └── schema.prisma
-├── screenshots/
-│ └── swagger.png # ← Add manually
-├── .env
-├── index.js
-└── README.md
+<pre> 📁 <b>Project Root</b> ├── 📂 <b>controllers</b> → Logic for customers & branches │ ├── customerController.js │ └── branchController.js ├── 📂 <b>routes</b> → API route mappings │ ├── customerRoutes.js │ └── branchRoutes.js ├── 📂 <b>validators</b> → Zod schemas for validation │ ├── customerSchema.js │ └── branchSchema.js ├── 📂 <b>utils</b> → Reusable helpers │ └── handleError.js ├── 📂 <b>public</b> → Static assets (Swagger UI CSS) │ └── swagger-ui.css ├── 📂 <b>prisma</b> → Prisma schema & migrations │ └── schema.prisma ├── 📂 <b>screenshots</b> → Swagger screenshot for docs │ └── swagger.png <i># Add manually</i> ├── .env → Environment variables ├── index.js → App entry point └── README.md → Project documentation </pre>
 
 
 ---
@@ -78,17 +59,18 @@ Then use:-
 
 
 
-📮 Sample API Routes
-Method	Endpoint	Description
-POST	/api/customers	Create a customer
-GET	/api/customers/:id	Get customer by ID
-PUT	/api/customers/:id	Update customer
-DELETE	/api/customers/:id	Delete customer
-POST	/api/branches	Create a branch
-GET	/api/branches?customerId=1	Get branches by customer ID
-PUT	/api/branches/:id	Update branch
-DELETE	/api/branches/:id	Delete branch
+## 📮 Sample API Routes
 
+| 🔧 Method | 📦 Endpoint                              | 📝 Description                  |
+|----------|------------------------------------------|----------------------------------|
+| POST     | `/api/customers`                         | Create a customer                |
+| GET      | `/api/customers/:id`                     | Get customer by ID               |
+| PUT      | `/api/customers/:id`                     | Update customer                  |
+| DELETE   | `/api/customers/:id`                     | Delete customer                  |
+| POST     | `/api/branches`                          | Create a branch                  |
+| GET      | `/api/branches?customerId=1`             | Get branches by customer ID      |
+| PUT      | `/api/branches/:id`                      | Update branch                    |
+| DELETE   | `/api/branches/:id`                      | Delete branch                    |
 
 
 
