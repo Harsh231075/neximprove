@@ -100,6 +100,9 @@ This makes it easy to change ports or environments later without updating every 
 | PUT      | `/api/branches/:id`                      | Update branch                    |
 | DELETE   | `/api/branches/:id`                      | Delete branch                    |
 
+## 🗺️ Entity Relationship Diagram (ERD)
+
+![ERD](./public/erd.png)
 
 
 ## 👨‍💻 Author
