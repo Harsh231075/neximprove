@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 👥 Customer Model
+model Customer {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  gstin    String
+  branches Branch[] // One-to-many relation with Branch
+}
+
+// 🏢 Branch Model
+model Branch {
+  id          Int      @id @default(autoincrement())
+  branch_code String
+  location    String
+  customer    Customer @relation(fields: [customerId], references: [id])
+  customerId  Int
+}
