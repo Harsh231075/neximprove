@@ -54,7 +54,7 @@ A complete customer and branch management backend using **Node.js**, **Express**
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/neximprove-api.git
+   git clone https://github.com/Harsh231075/neximprove
    cd neximprove
    npm install
    Create a .env
