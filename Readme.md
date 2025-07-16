@@ -1,4 +1,4 @@
-# 🚀 Neximprove Backend API
+#  Neximprove Backend API
 
 A complete customer and branch management backend using **Node.js**, **Express**, **Prisma**, **Zod**, and **Swagger**.
 
@@ -8,7 +8,6 @@ A complete customer and branch management backend using **Node.js**, **Express**
 
 ![Swagger UI Screenshot](./public/swagger.png)
 
-> 💡 Place your screenshot inside a folder named `screenshots/` at the root of the project before pushing to GitHub.
 
 ---
 
@@ -22,9 +21,31 @@ A complete customer and branch management backend using **Node.js**, **Express**
 
 ---
 
+
+
 ## 📁 Folder Structure
 
-<pre> 📁 <b>Project Root</b> ├── 📂 <b>controllers</b> → Logic for customers & branches │ ├── customerController.js │ └── branchController.js ├── 📂 <b>routes</b> → API route mappings │ ├── customerRoutes.js │ └── branchRoutes.js ├── 📂 <b>validators</b> → Zod schemas for validation │ ├── customerSchema.js │ └── branchSchema.js ├── 📂 <b>utils</b> → Reusable helpers │ └── handleError.js ├── 📂 <b>public</b> → Static assets (Swagger UI CSS) │ └── swagger-ui.css ├── 📂 <b>prisma</b> → Prisma schema & migrations │ └── schema.prisma ├── 📂 <b>screenshots</b> → Swagger screenshot for docs │ └── swagger.png <i># Add manually</i> ├── .env → Environment variables ├── index.js → App entry point └── README.md → Project documentation </pre>
+- **controllers/**
+  - `customerController.js`
+  - `branchController.js`
+- **routes/**
+  - `customerRoutes.js`
+  - `branchRoutes.js`
+- **validators/**
+  - `customerSchema.js`
+  - `branchSchema.js`
+- **utils/**
+  - `handleError.js`
+- **public/**
+  - `swagger-ui.css`
+- **prisma/**
+  - `schema.prisma`
+  - `.env`
+- `index.js`
+- `README.md`
+- **screenshots/**
+  - ![Swagger UI Screenshot](./public/swagger2.png)
+
 
 
 ---
@@ -45,18 +66,25 @@ A complete customer and branch management backend using **Node.js**, **Express**
    Start the Server :-
    npm run dev
 
-🌐 API Documentation
-Access full Swagger UI:
-http://localhost:4000/api-docs
+## 🌐 API Documentation
+   Access full Swagger UI:
+- `http://localhost:4000/api-docs`
 
-🧪 Postman Environment Tip
-If you're using Postman, you can set this in your environment:-
-PORT=4000
-BASE_URL=http://localhost:{{PORT}}/api
-Then use:-
-{{BASE_URL}}/customers
-{{BASE_URL}}/branches
+## 🧪 Postman Environment Tip
 
+To simplify API testing in Postman, create an environment with the following variables:
+
+- `PORT` = `4000`
+- `BASE_URL` = `http://localhost:{{PORT}}/api`
+
+### ✅ Usage Example:
+
+Instead of hardcoding full URLs, use:
+
+- `{{BASE_URL}}/customers`
+- `{{BASE_URL}}/branches`
+
+This makes it easy to change ports or environments later without updating every request.
 
 
 ## 📮 Sample API Routes
@@ -74,6 +102,6 @@ Then use:-
 
 
 
-👨‍💻 Author
-Harsh Singh Baghel
-Backend Developer | MERN Stack | API Builder
+## 👨‍💻 Author
+  Harsh Singh Baghel
+ `Backend Developer | MERN Stack | API Builder`

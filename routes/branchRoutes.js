@@ -52,24 +52,24 @@ router.post('/branches', createBranch);
  * @swagger
  * /branches:
  *   get:
- *     summary: Get all branches for a customer
+ *     summary: Get branches by customer ID
  *     tags: [Branches]
  *     parameters:
  *       - in: query
  *         name: customerId
  *         required: true
  *         schema:
- *           type: integer
- *         description: ID of the customer
+ *           type: string
+ *         description: Customer ID to filter branches
  *     responses:
  *       200:
- *         description: List of branches for the customer
+ *         description: List of branches for the specified customer
  *       400:
- *         description: Missing or invalid customerId
+ *         description: Validation error
  *       404:
- *         description: Customer not found
+ *         description: No branches found for the specified customer
  */
-router.get('/branches', getBranchesByCustomer);
+router.get('/branches?customerId=:customerId', getBranchesByCustomer);
 
 /**
  * @swagger
