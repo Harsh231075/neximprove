@@ -11,7 +11,10 @@ const branchSchema = z.object({
 });
 
 const paramSchema = z.object({
-  id: z.string().regex(/^\d+$/, "ID must be a valid number")
+  id: z.coerce.number({
+    required_error: "ID is required",
+    invalid_type_error: "ID must be a number",
+  }).int("ID must be an integer").positive("ID must be positive"),
 });
 
 const querySchema = z.object({
@@ -22,6 +25,7 @@ const querySchema = z.object({
 //  Create Branch
 exports.createBranch = async (req, res) => {
   try {
+    console.log("Creating branch with data:", req.body);
     const data = branchSchema.parse(req.body); // Validate body
     const branch = await prisma.branch.create({ data });
     res.status(201).json(branch);
@@ -33,10 +37,12 @@ exports.createBranch = async (req, res) => {
 //  Get Branches by Customer ID
 exports.getBranchesByCustomer = async (req, res) => {
   try {
-    const { customerId } = querySchema.parse(req.query); // Validate query
+    const { customerId } = querySchema.parse(req.query);
+
     const branches = await prisma.branch.findMany({
       where: { customerId: parseInt(customerId) },
     });
+
     res.json(branches);
   } catch (error) {
     handleError(error, res);

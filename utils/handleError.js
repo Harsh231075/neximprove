@@ -1,7 +1,7 @@
 const { ZodError } = require('zod');
 
 const handleError = (error, res) => {
-  // console.log("ERROR CAUGHT:", error);
+  //console.log("ERROR CAUGHT:", error);
 
   const isZodError = error instanceof ZodError;
   const isDuplicate = error.code === 'P2002';

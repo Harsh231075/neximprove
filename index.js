@@ -8,9 +8,9 @@ const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // ✅ For swagger-ui.css
+app.use(express.static('public')); //  For swagger-ui.css
 
-// ✅ 1. Swagger Spec Options (only structure/info/paths)
+//  1. Swagger Spec Options (only structure/info/paths)
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -21,7 +21,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:4000/api'
+        url: process.env.Base_URL || 'http://localhost:4000/api',
       }
     ]
   },
@@ -30,14 +30,14 @@ const options = {
 
 const swaggerSpec = swaggerJSDoc(options);
 
-// ✅ 2. UI Customization (title, favicon, CSS)
+//  2. UI Customization (title, favicon, CSS)
 const swaggerUiOptions = {
   customCssUrl: '/swagger-ui.css',
   customSiteTitle: 'Neximprove API Docs',
   customfavIcon: 'https://avatars.githubusercontent.com/u/6154722?s=200&v=4'
 };
 
-// ✅ 3. Swagger Middleware
+//  3. Swagger Middleware
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions));
 
 // Routes

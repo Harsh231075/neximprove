@@ -41,6 +41,7 @@ A complete customer and branch management backend using **Node.js**, **Express**
 - **prisma/**
   - `schema.prisma`
   - `.env`
+  - `Apis.postman_collection.json`
 - `index.js`
 - `README.md`
 - **screenshots/**

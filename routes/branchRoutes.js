@@ -69,7 +69,7 @@ router.post('/branches', createBranch);
  *       404:
  *         description: No branches found for the specified customer
  */
-router.get('/branches?customerId=:customerId', getBranchesByCustomer);
+router.get('/branches', getBranchesByCustomer);
 
 /**
  * @swagger

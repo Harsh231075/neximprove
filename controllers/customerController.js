@@ -12,13 +12,15 @@ const customerSchema = z.object({
 });
 
 const paramSchema = z.object({
-  id: z.string().regex(/^\d+$/, "ID must be a valid number")
+  id: z.coerce.number({
+    required_error: "ID is required",
+    invalid_type_error: "ID must be a number",
+  }).int("ID must be an integer").positive("ID must be positive"),
 });
 
 //  Create Customer
 exports.createCustomer = async (req, res) => {
   try {
-    console.log("Creating customer with data:", req.body);
     const data = customerSchema.parse(req.body);
     const customer = await prisma.customer.create({ data });
     res.status(201).json(customer);
@@ -30,9 +32,10 @@ exports.createCustomer = async (req, res) => {
 //  Get Customer
 exports.getCustomerById = async (req, res) => {
   try {
+
     const { id } = paramSchema.parse(req.params);
     const customer = await prisma.customer.findUnique({
-      where: { id },
+      where: { id: parseInt(id) },
       include: { branches: true }
     });
     if (!customer) {
@@ -40,9 +43,10 @@ exports.getCustomerById = async (req, res) => {
     }
     res.json(customer);
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
+
+    handleError(error, res);
+  };
+}
 
 //  Update Customer
 exports.updateCustomer = async (req, res) => {
